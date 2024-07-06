@@ -33,16 +33,31 @@ could you find an O(n) solution using a different approach?
  * @param {number[]} nums
  * @return {number[]}
  */
+
+// Функция sortedSquares принимает массив чисел nums в качестве аргумента
+// The function sortedSquares takes an array of numbers nums as an argument
 var sortedSquares = function (nums) {
+  // Инициализация указателей left и right, указывающих на начало и конец массива
+  // Initializing pointers left and right, pointing to the start and end of the array
   let left = 0;
   let right = nums.length - 1;
 
+  // Цикл продолжается, пока left не превысит right
+  // The loop continues until left exceeds right
   while(left <= right) {
+    // Берем абсолютное значение текущего элемента, на который указывает left
+    // Take the absolute value of the current element pointed to by left
     const item = Math.abs(nums[left]);
+    // Заменяем исходное значение этим квадратом
+    // Replace the original value with this square
     nums[left] = item * item;    
+    // Переходим к следующему элементу
+    // Move to the next element
     left++;
   }
 
+  // Возвращаем массив nums, отсортированный в возрастающем порядке
+  // Return the array nums, sorted in ascending order
   return nums.sort((a, b) => a - b);
 };
 
